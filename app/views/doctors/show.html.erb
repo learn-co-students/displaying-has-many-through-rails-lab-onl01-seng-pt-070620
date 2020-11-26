@@ -1,0 +1,14 @@
+ <% # app/views/doctors/show.html.erb %>
+ 
+ <h2><%= @doctor.name %></h2>
+ <p>
+ Department: <%= @doctor.department %>
+ <br>
+ Appointments:
+ </p>
+ 
+ <% @doctor.appointments.each do |appt| %>
+ <%= link_to appt.patient.name, patient_path(appt.patient) %> Age:  
+ <%= appt.patient.age %> Appointment Date and Time: <%= appt.appointment_datetime.strftime("%B %d, %Y at %k:%M") %><br>
+ <br>
+<% end %>
